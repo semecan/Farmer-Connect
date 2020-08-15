@@ -2,6 +2,7 @@ local addonName, addon = ...;
 
 local strsplit = _G.strsplit;
 local strjoin = _G.strjoin;
+local tremove = _G.tremove;
 local unpack = _G.unpack;
 local UnitFullName = _G.UnitFullName;
 
@@ -19,19 +20,19 @@ end
 events.on('CHAT_MSG_ADDON', function (prefix, message, channel, sender)
   if (prefix ~= ADDON_PREFIX) then return end
 
-  if (sender == playerName) then
-    local payload = {strsplit(' ', message)};
+  local payload = {strsplit(' ', message)};
+  local identifier = payload[1];
 
-    if (payload[1] == 'test') then
-      print(channel);
-      callbackHandler:call(unpack(payload));
+  if (sender == playerName) then
+    if (identifier == 'test') then
+      callbackHandler:call(identifier, sender, select(2, unpack(payload)));
     end
 
     return;
   end
 
   -- print('Received raid command:', message, 'by', sender);
-  callbackHandler:call(strsplit(' ', message));
+  callbackHandler:call(identifier, sender, select(2, unpack(payload)));
 end);
 
 events.on('PLAYER_LOGIN', function ()

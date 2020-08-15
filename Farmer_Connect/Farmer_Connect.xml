@@ -3,5 +3,6 @@
   <script file="Constants.lua"></script>
   <include file="Receive\Receive.xml"></include>
   <include file="Send\Send.xml"></include>
+  <script file="Listen.lua"></script>
   <include file="Tests\Tests.xml"></include>
 </UI>
