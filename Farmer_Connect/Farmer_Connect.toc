@@ -1,0 +1,10 @@
+## Interface: 80300
+## Title: Farmer Connect
+## Version: 1.0
+## Notes: Allows you to let others know what you loot
+## Author: syndenbock
+## Dependencies: Farmer
+## SavedVariables: FARMER_CONNECT_VARIABLES
+
+# addon files
+Farmer_Connect.xml
