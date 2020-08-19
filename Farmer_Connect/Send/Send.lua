@@ -1,13 +1,13 @@
 local _, addon = ...;
 
-local strjoin = _G.strjoin;
 local SendAddonMessage = _G.C_ChatInfo.SendAddonMessage;
 
 local ADDON_PREFIX = addon.constants.PREFIX;
 local CHANNEL_TYPE = addon.constants.MESSAGETYPES.channel;
+local serialize = addon.API.serialize;
 
 local function sendData (type, channel, ...)
-  local data = strjoin(' ', ...);
+  local data = serialize(...);
 
   if (not SendAddonMessage(ADDON_PREFIX, data, type, channel)) then
     -- print('Could not send data');

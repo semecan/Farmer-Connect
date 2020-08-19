@@ -1,7 +1,8 @@
-local _, addon = ...;
+local addonName, addon = ...;
 
 addon.constants = {
-  UNITID_PLAYER = 'player',
+  DEBUG = true,
+  UNIT_PLAYER = 'player',
   PREFIX = 'FARM_CON';
   MESSAGETYPES = {
     say = 'SAY',
@@ -13,3 +14,7 @@ addon.constants = {
     tests = 0,
   },
 };
+
+if (addon.constants.DEBUG == true) then
+  print(addonName, 'warning: debug mode is enabled');
+end
