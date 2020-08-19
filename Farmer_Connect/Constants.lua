@@ -1,7 +1,7 @@
 local addonName, addon = ...;
 
 addon.constants = {
-  DEBUG = true,
+  DEBUG = false,
   UNIT_PLAYER = 'player',
   PREFIX = 'FARM_CON';
   MESSAGETYPES = {

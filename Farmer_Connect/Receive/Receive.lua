@@ -23,8 +23,8 @@ events.on('CHAT_MSG_ADDON', function (prefix, message, channel, sender)
   local payload = deserialize(message);
   local identifier = payload[1];
 
-  if (sender == playerName and DEBUG == true) then
-    if (identifier == 'test') then
+  if (sender == playerName) then
+    if (DEBUG == true and identifier == 'test') then
       callbackHandler:call(identifier, sender, select(2, unpack(payload)));
     end
 
